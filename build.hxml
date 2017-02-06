@@ -1,0 +1,8 @@
+-js bin/app.js
+-cp src
+-main Main
+-lib react
+-lib msignal
+-D react_global
+-debug
+-dce full
