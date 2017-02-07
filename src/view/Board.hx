@@ -1,22 +1,20 @@
 package view;
 
-import react.React;
 import react.ReactComponent;
 import react.ReactMacro.jsx;
 
 typedef BoardProps = {
   var squares: Array<String>;
-  // var onClick: Int->Void;
 }
 
 class Board extends ReactComponentOfProps<BoardProps>
 {
-  public function new(props:BoardProps)
+  public function new(props:BoardProps):Void
   {
     super(props);
   }
 
-  public override function render()
+  public override function render():ReactElement
   {
     return jsx('
       <div>
@@ -39,14 +37,9 @@ class Board extends ReactComponentOfProps<BoardProps>
     ');
   }
 
-  function renderSquare(i:Int) {
-    // return jsx('<Square value=${props.squares[i]} ident=$i onClick=$onSquareClicked />');
+  function renderSquare(i:Int):ReactElement
+  {
     return jsx('<Square value=${props.squares[i]} ident=$i />');
   }
-
-  // function onSquareClicked(i:Int)
-  // {
-  //   props.onClick(i);
-  // }
 
 }

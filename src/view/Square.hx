@@ -1,6 +1,5 @@
 package view;
 
-import react.React;
 import react.ReactComponent;
 import react.ReactMacro.jsx;
 
@@ -9,17 +8,16 @@ import store.SquareActions;
 typedef SquareProps = {
   var ident: Int;
   var value: String;
-  // var onClick: Int->Void;
 }
 
 class Square extends ReactComponentOfProps<SquareProps>
 {
-  public function new(props:SquareProps)
+  public function new(props:SquareProps):Void
   {
     super(props);
   }
 
-  public override function render()
+  public override function render():ReactElement
   {
     return jsx('
       <button className="square" onClick="$onClicked">
@@ -28,9 +26,11 @@ class Square extends ReactComponentOfProps<SquareProps>
     ');
   }
 
-  function onClicked(evt:js.html.Event)
+  /**
+   * Click event listener: dispatch a signal
+   **/
+  function onClicked(evt:js.html.Event):Void
   {
-    // props.onClick(props.ident);
     SquareActions.addItem.dispatch(props.ident);
   }
 

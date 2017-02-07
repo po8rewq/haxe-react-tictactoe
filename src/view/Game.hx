@@ -1,6 +1,5 @@
 package view;
 
-import react.React;
 import react.ReactComponent;
 import react.ReactMacro.jsx;
 
@@ -14,7 +13,7 @@ typedef GameState = {
 
 class Game extends ReactComponentOfState<GameState>
 {
-	public function new(props:Dynamic)
+	public function new(props:Dynamic):Void
 	{
 		super(props);
 
@@ -30,7 +29,7 @@ class Game extends ReactComponentOfState<GameState>
 		SquareActions.jumpTo.add(jumpTo);
 	}
 
-	function onSquareClicked(i: Int)
+	function onSquareClicked(i: Int):Void
   {
 		var history = state.history.slice(0, state.stepNumber+1);
 	  var current = history[history.length - 1];
@@ -48,7 +47,7 @@ class Game extends ReactComponentOfState<GameState>
 	  });
   }
 
-	override public function render()
+	override public function render():ReactElement
 	{
 		var history = state.history;
 		var current = history[state.stepNumber];
@@ -66,7 +65,7 @@ class Game extends ReactComponentOfState<GameState>
       </div>');
 	}
 
-	function jumpTo(step:Int)
+	function jumpTo(step:Int):Void
 	{
 		setState({
 		 	stepNumber: step,
